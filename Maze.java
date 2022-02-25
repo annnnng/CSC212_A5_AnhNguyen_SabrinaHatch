@@ -21,7 +21,7 @@ public class Maze implements DisplayableMaze {
 	private MazeContents[][] maze;
 
 	/** @return start location */
-	private int[] startPosition(char[][] mazeArray){
+	private int[] startPosition(Character[][] mazeArray){
 		int[] start = new int[2];
 		for (int i = 0; i < mazeArray.length; i++) {
     	for (int j = 0; j < mazeArray[i].length; j++) {
@@ -35,7 +35,7 @@ public class Maze implements DisplayableMaze {
 	}
 	
 	/** @return finish location */
-	private int[] finishPosition(char[][] mazeArray){
+	private int[] finishPosition(Character[][] mazeArray){
 		int[] finish = new int[2];
 		for (int i = 0; i < mazeArray.length; i++) {
     	for (int j = 0; j < mazeArray[i].length; j++) {
@@ -49,7 +49,7 @@ public class Maze implements DisplayableMaze {
 	}
 
 	/** @return char[][] as MazeContents[][]*/
-	private MazeContents[][] mazeArrayToContents(char[][] mazeArray) {
+	private MazeContents[][] mazeArrayToContents(Character[][] mazeArray) {
 		MazeContents[][] maze = new MazeContents[mazeArray.length][mazeArray[0].length];
 		for (int i = 0; i < mazeArray.length; i++) {
     	for (int j = 0; j < mazeArray[i].length; j++) {
@@ -65,7 +65,7 @@ public class Maze implements DisplayableMaze {
 	}
 
 	/** constructor for maze */
-	public Maze(char[][] mazeArray) { 
+	public Maze(Character[][] mazeArray) { 
 		this.height = mazeArray.length;
 		this.width = mazeArray[0].length;
 		this.start = startPosition(mazeArray);
