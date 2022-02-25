@@ -5,10 +5,10 @@ import java.io.*;
  */
 public class Maze implements DisplayableMaze {
 
-	/** field storing height of maze grid */
+	/** field storing height of maze grid or number of rows */
 	private int height;
 
-	/** field storing width of maze grid */
+	/** field storing width of maze grid or number of columns */
 	private int width;
 
 	/** field storing start position of maze grid */
@@ -70,6 +70,7 @@ public class Maze implements DisplayableMaze {
 		this.width = mazeArray[0].length;
 		this.start = startPosition(mazeArray);
 		this.finish = finishPosition(mazeArray);
+		this.maze = mazeArrayToContents(mazeArray);
 	}
 
 	/** init */
@@ -86,8 +87,8 @@ public class Maze implements DisplayableMaze {
 
 	/** @return contents of maze grid at row i, column j */
 	public MazeContents getContents(int i, int j) {
-		if (j < height) {
-			return MazeContents.OPEN;
+		if (i < height && j < width) {
+			return maze[i][j];
 		} else {
 			return MazeContents.WALL;
 		}
@@ -100,6 +101,6 @@ public class Maze implements DisplayableMaze {
 
 	/** @return location of maze finish point */
 	public MazeLocation getFinish() {
-		return new MazeLocation(finish[0], finish[1]);      
+		return new MazeLocation(finish[0], finish[1]);  
 	}
 }
