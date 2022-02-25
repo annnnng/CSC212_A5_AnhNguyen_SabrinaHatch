@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 /**
  *. Maze starter file (fill in your own info)
  */
@@ -16,20 +18,61 @@ public class Maze implements DisplayableMaze {
 	private int[] finish;
 
 	/** field storing maze grid */
-	private char[][] maze;
+	private MazeContents[][] maze;
+
+	/** @return start location */
+	public int[] startPosition(char[][] mazeArray){
+		int[] start = new int[2];
+		for (int i = 0; i < mazeArray.length; i++) {
+    	for (int j = 0; j < mazeArray[i].length; j++) {
+      	if (mazeArray[i][j] == 'S') {
+					start[0] = i;
+					start[1] = j;
+      	}
+    	}
+ 		}
+		return start;
+	}
+	
+	/** @return finish location */
+	public int[] finishPosition(char[][] mazeArray){
+		int[] finish = new int[2];
+		for (int i = 0; i < mazeArray.length; i++) {
+    	for (int j = 0; j < mazeArray[i].length; j++) {
+      	if (mazeArray[i][j] == 'F') {
+					finish[0] = i;
+					finish[1] = j;
+      	}
+    	}
+ 		}
+		return finish;
+	}
+
+	/** @return char[][] as MazeContents[][]*/
+	public MazeContents[][] mazeArrayToContents(char[][] mazeArray) {
+		MazeContents[][] maze = new MazeContents[mazeArray.length][mazeArray[0].length];
+		for (int i = 0; i < mazeArray.length; i++) {
+    	for (int j = 0; j < mazeArray[i].length; j++) {
+      	char element = mazeArray[i][j];
+				if (element == '#') {
+					maze[i][j] = MazeContents.WALL;
+				} else if (element == '.' || element == 'S' || element == 'F') {
+					maze[i][j] = MazeContents.OPEN;
+				}
+    	}
+ 		}
+		return maze;
+	}
 
 	/** constructor for maze */
 	public Maze(char[][] mazeArray) { 
 		this.height = mazeArray.length;
 		this.width = mazeArray[0].length;
-		this.start = new int[] {0, 0};
-		this.finish = new int[] {12,12};
-		this.maze = mazeArray;
+		this.start = startPosition(mazeArray);
+		this.finish = finishPosition(mazeArray);
 	}
 
-	/** @return start location */
-
-	/** @return finish location */
+	/** init */
 	
 	/** @return height of maze grid */
 	public int getHeight() {
@@ -43,7 +86,7 @@ public class Maze implements DisplayableMaze {
 
 	/** @return contents of maze grid at row i, column j */
 	public MazeContents getContents(int i, int j) {
-		if (j < height-1) {
+		if (j < height) {
 			return MazeContents.OPEN;
 		} else {
 			return MazeContents.WALL;
