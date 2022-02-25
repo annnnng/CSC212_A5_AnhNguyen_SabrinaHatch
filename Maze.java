@@ -21,7 +21,7 @@ public class Maze implements DisplayableMaze {
 	private MazeContents[][] maze;
 
 	/** @return start location */
-	public int[] startPosition(char[][] mazeArray){
+	private int[] startPosition(char[][] mazeArray){
 		int[] start = new int[2];
 		for (int i = 0; i < mazeArray.length; i++) {
     	for (int j = 0; j < mazeArray[i].length; j++) {
@@ -35,7 +35,7 @@ public class Maze implements DisplayableMaze {
 	}
 	
 	/** @return finish location */
-	public int[] finishPosition(char[][] mazeArray){
+	private int[] finishPosition(char[][] mazeArray){
 		int[] finish = new int[2];
 		for (int i = 0; i < mazeArray.length; i++) {
     	for (int j = 0; j < mazeArray[i].length; j++) {
@@ -49,7 +49,7 @@ public class Maze implements DisplayableMaze {
 	}
 
 	/** @return char[][] as MazeContents[][]*/
-	public MazeContents[][] mazeArrayToContents(char[][] mazeArray) {
+	private MazeContents[][] mazeArrayToContents(char[][] mazeArray) {
 		MazeContents[][] maze = new MazeContents[mazeArray.length][mazeArray[0].length];
 		for (int i = 0; i < mazeArray.length; i++) {
     	for (int j = 0; j < mazeArray[i].length; j++) {

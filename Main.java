@@ -11,7 +11,6 @@ class Main {
 		System.out.println(Arrays.deepToString(MazeReader.mazeElements("maze1.txt")));
 	}
 
-	/**
   public static void testConstructor() 
   {
 		Maze testMaze = new Maze(MazeReader.mazeElements("maze1.txt"));
@@ -21,5 +20,5 @@ class Main {
 		TestCode.subTest("Constructor weight", testMaze.getWidth() == 27);
     TestCode.concludeTest();
   }
-	*/
+
 }
