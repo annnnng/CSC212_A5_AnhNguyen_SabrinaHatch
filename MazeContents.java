@@ -9,8 +9,11 @@ import java.awt.Color;
 public enum MazeContents {
   WALL (false,Color.black),
   OPEN (true,Color.white),
+  //green
   VISITED (false,new Color(200,255,200)),
+  //red
   DEAD_END (false,new Color(255,200,200)),
+  //dark green
   PATH (true,Color.green.darker());
 
   /** Can we visit this square? */

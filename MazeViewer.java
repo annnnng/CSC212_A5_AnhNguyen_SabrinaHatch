@@ -23,7 +23,7 @@ public class MazeViewer extends JComponent implements ActionListener {
   /** Window the maze will appear in */
   private JFrame frame;
 
-	/** TImer for callbacks */
+	/** Timer for callbacks */
 	private Timer timer;
 
 	/** Creates a viewer to display the specified maze */

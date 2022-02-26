@@ -5,8 +5,9 @@ public class MazeSolver {
 	public static void main(String[] args){
 		if (args.length == 0) {
 			Scanner file = new Scanner(System.in);
-			Character[][] mazeArray = MazeReader.mazeElements(file);
-			System.out.println(Arrays.deepToString(mazeArray));
+			Maze maze = new Maze(MazeReader.mazeElements(file));
+    	MazeViewer viewer = new MazeViewer(maze);
+			maze.solveMaze();
 		} else {
 			Scanner file = null;
 	    try 
@@ -18,8 +19,9 @@ public class MazeSolver {
 				System.err.println("Cannot locate file.");
 				System.exit(-1);
 			}
-			Character[][] mazeArray = MazeReader.mazeElements(file);
-			System.out.println(Arrays.deepToString(mazeArray));
+			Maze maze = new Maze(MazeReader.mazeElements(file));
+    	MazeViewer viewer = new MazeViewer(maze);
+			maze.solveMaze();
 		}
 	}
 }

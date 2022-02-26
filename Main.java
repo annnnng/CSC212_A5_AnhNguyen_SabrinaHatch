@@ -6,7 +6,7 @@ class Main {
 		Scanner file = null;
 		try 
 		{
-			file = new Scanner(new File("maze1.txt"));
+			file = new Scanner(new File("maze2.txt"));
 		} 
 		catch (FileNotFoundException e) 
 		{
@@ -15,5 +15,6 @@ class Main {
 		}
     Maze maze = new Maze(MazeReader.mazeElements(file));
     MazeViewer viewer = new MazeViewer(maze);
+		maze.solveMaze();
   }
 }
